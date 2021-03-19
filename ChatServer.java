@@ -2,12 +2,8 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-/**
- * This is the chat server program.
- * Press Ctrl + C to terminate the program.
- *
- * @author www.codejava.net
- */
+
+
 public class ChatServer {
     private int port;
     private Set<String> userNames = new HashSet<>();
@@ -39,21 +35,16 @@ public class ChatServer {
     }
 
     public static void main(String[] args) {
-//        if (args.length < 1) {
-//            System.out.println("Syntax: java ChatServer <port-number>");
-//            System.exit(0);
-//        }
-
-        //int port = Integer.parseInt(args[0]);
+  
         int port = 8180;
 
         ChatServer server = new ChatServer(port);
         server.execute();
     }
 
-    /**
-     * Delivers a message from one user to others (broadcasting)
-     */
+    /*
+       Доставляет сообщение от одного пользователя к другому (broadcasting)
+    */
     void broadcast(String message, UserThread excludeUser) {
         for (UserThread aUser : userThreads) {
             if (aUser != excludeUser) {
@@ -62,16 +53,16 @@ public class ChatServer {
         }
     }
 
-    /**
-     * Stores username of the newly connected client.
-     */
+    /*
+       Хранит имя пользоваеля нового присоединившегося клиента
+    */
     void addUserName(String userName) {
         userNames.add(userName);
     }
 
-    /**
-     * When a client is disconneted, removes the associated username and UserThread
-     */
+    /*
+       Когда клиент отсоединился, удаляет имя пользователя и UserThread
+    */
     void removeUser(String userName, UserThread aUser) {
         boolean removed = userNames.remove(userName);
         if (removed) {
@@ -84,9 +75,9 @@ public class ChatServer {
         return this.userNames;
     }
 
-    /**
-     * Returns true if there are other users connected (not count the currently connected user)
-     */
+    /*
+       Возвращает true, если есть другие подсоединенные пользователи (не количество подсоединенных на данный момент пользователей)
+    */
     boolean hasUsers() {
         return !this.userNames.isEmpty();
     }
