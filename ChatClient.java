@@ -1,12 +1,6 @@
 import java.net.*;
 import java.io.*;
 
-/**
- * This is the chat client program.
- * Type 'bye' to terminate the program.
- *
- * @author www.codejava.net
- */
 public class ChatClient {
     private String hostname;
     private int port;
@@ -44,10 +38,6 @@ public class ChatClient {
 
 
     public static void main(String[] args) {
-//        if (args.length < 2) return;
-//
-//        String hostname = args[0];
-//        int port = Integer.parseInt(args[1]);
         String hostname = "37.115.26.12";
         int port = 8180;
         ChatClient client = new ChatClient(hostname, port);
