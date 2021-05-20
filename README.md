@@ -1,2 +1,0 @@
-# kpp_project
-КПП
