@@ -1,54 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>itProger App</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Log in</title>
 </head>
 <body>
-<h1>Конвертер температуры</h1>
-<div class="form-group col-md-3">
-    <label for="usr">Цельсии:</label>
-    <input type="text" class="form-control" id="celcius" onkeyup="celciusToFahrenheit()">
-</div>
+<label for="usernameInput">Username: </label>
+<input type="text" id="usernameInput"/>
+<label for="passwordInput">Password</label>
+<input type="password" id="passwordInput"/>
+<button id="signBtn">Sign in</button>
 
-<div class="form-group col-md-3">
-    <label for="pwd">Фаренгейты:</label>
-    <input type="text" class="form-control" id="fahrenheit" onkeyup="fahrenheitToCelcius()">
-</div>
-<button id="query">query</button>
-<div id="div4query"></div>
-
-<script>
-    //require('./render.js');
-
-    function celciusToFahrenheit(){
-        let celcius = document.getElementById('celcius').value;
-        let fahrenheit = (celcius* 9/5) + 32;
-        document.getElementById('fahrenheit').value = fahrenheit;
-    }
-
-    function fahrenheitToCelcius(){
-        let fahrenheit = document.getElementById('fahrenheit').value;
-        let celcius = (fahrenheit - 32) * 5/9
-        document.getElementById('celcius').value = celcius;
-    }
-
-    let btn = document.getElementById('query')
-
-    let div = document.getElementById('div4query')
-
-    btn.addEventListener('click', async () => {
-        let response = await fetch('http://localhost:3000/chat/msg');
-        if (response.ok) {
-            div.innerHTML = await response.text();
-        } else {
-            console.log('Error ', response.status);
-        }
-    })
-
-</script>
+<script src="auth.js"></script>
 </body>
 </html>
+
