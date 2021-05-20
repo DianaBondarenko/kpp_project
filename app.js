@@ -19,9 +19,7 @@ app.use(cors());
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
-// db.authenticate()
-//     .then(() => {console.log('DB connected...')})
-//     .catch(er => console.log('Error: ', er));
+
 
 app.use(morgan('dev'));
 app.use('/chat', chatRouter);

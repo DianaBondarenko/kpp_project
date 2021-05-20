@@ -17,13 +17,11 @@ class chatController {
         mainView.send(res, chats);
     })
     getMessagesFromChat = asyncHandler(async (req, res) => {
-        //console.log(res.locals)
         const {id} = req.params;
         const chats = await chatService.getMessagesFromChat(id);
         mainView.send(res, chats);
     })
     sendMessage = asyncHandler(async (req, res) => {
-        console.log('sending message')
         const {chatId, senderId, messageText} = req.body;
         const chats = await chatService.sendMessage(chatId, senderId, messageText);
         mainView.send(res, chats);
